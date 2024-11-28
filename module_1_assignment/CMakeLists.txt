@@ -17,6 +17,13 @@ add_executable(task2 src/task2.cpp)
 add_executable(task3 src/task3_main.cpp src/task3.cpp)
 add_executable(task3b src/task3b_main.cpp src/task3b.cpp)
 
+# install(TARGETS
+#   task1
+#   task2
+#   task3
+#   task3b
+#   DESTINATION /home/ashish/assignment_ws/src/robotics_software_engineer/module_1_assignment/build)
+
 # if(BUILD_TESTING)
 #   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

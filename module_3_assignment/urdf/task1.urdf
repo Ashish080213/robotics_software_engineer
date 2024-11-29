@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+  <robot name="myrobot">
+
+  <link name="world"/>
+  <link name="base"/>
+  <link name="shoulder"/>
+  <link name="elbow"/>
+  <link name="wrist"/>
+
+  <joint name="base_joint" type="continuous">
+    <origin xyz="0.0 0.0 0.1" rpy="0 0.0 0.0"/>
+    <parent link="world"/>
+    <child link="base"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="shoulder_joint" type="continuous">
+    <origin xyz="0.0 0.0 0.5" rpy="1.57 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="shoulder"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="elbow_joint" type="continuous">
+    <origin xyz="0.5 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="shoulder"/>
+    <child link="elbow"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="wrist_joint" type="fixed">
+    <origin xyz="0.5 0.0 0.0" rpy="1.57 0.0 1.57"/>
+    <parent link="elbow"/>
+    <child link="wrist"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+</robot>

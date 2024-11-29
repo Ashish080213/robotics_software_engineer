@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+  <robot name="myrobot">
+
+  <link name="base">
+    <visual>
+      <geometry>
+          <box size="0.75 0.4 0.1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <link name="lidar">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="camera">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="wheel_right_link">
+    <visual>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="wheel_left_link">
+    <visual>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="front_wheel_right_steer_link">
+  </link>
+  
+  <link name="front_wheel_left_steer_link">
+  </link>
+
+  <link name="front_wheel_right_link">
+    <visual>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="front_wheel_left_link">
+    <visual>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="wheel_right_joint" type="continuous">
+    <origin xyz="0.2 0.25 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="wheel_right_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="wheel_left_joint" type="continuous">
+    <origin xyz="0.2 -0.25 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="wheel_left_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="front_wheel_right_steer" type="revolute">
+    <origin xyz="-0.2 0.25 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="front_wheel_right_steer_link"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <limit lower="-0.2" upper="0.2" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <joint name="front_wheel_left_steer" type="revolute">
+    <origin xyz="-0.2 -0.25 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="front_wheel_left_steer_link"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <limit lower="-0.2" upper="0.2" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <joint name="front_wheel_right_joint" type="continuous">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="front_wheel_right_steer_link"/>
+    <child link="front_wheel_right_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="front_wheel_left_joint" type="continuous">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="front_wheel_left_steer_link"/>
+    <child link="front_wheel_left_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="-0.35 0 0.01" rpy="0 0.0 3.14"/>
+    <parent link="base"/>
+    <child link="camera"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+  
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="-0.285 0 0.075" rpy="0 0.0 1.57"/>
+    <parent link="base"/>
+    <child link="lidar"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+</robot>

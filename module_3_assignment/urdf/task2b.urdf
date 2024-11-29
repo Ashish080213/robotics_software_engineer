@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<robot name="myrobot">
+
+  <!-- World Link -->
+  <link name="world"/>
+
+  <!-- Base Link -->
+  <link name="base">
+    <visual>
+      <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.5"/>
+      </geometry>
+      <material name="Blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Shoulder Link -->
+  <link name="shoulder">
+    <visual>
+      <origin xyz="0.25 0.0 0.0" rpy="0.0 1.57 0.0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.5"/>
+      </geometry>
+      <material name="Green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Elbow Link -->
+  <link name="elbow">
+    <visual>
+      <origin xyz="0.25 0.0 0.0" rpy="0.0 1.57 0.0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.5"/>
+      </geometry>
+      <material name="Red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Gripper Link -->
+  <link name="gripper">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.25"/>
+      </geometry>
+      <material name="Yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joints -->
+  <joint name="base_joint" type="continuous">
+    <origin xyz="0.0 0.0 0.1" rpy="0 0.0 0.0"/>
+    <parent link="world"/>
+    <child link="base"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="shoulder_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.5" rpy="1.57 0.0 0.0"/>
+    <parent link="base"/>
+    <child link="shoulder"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <joint name="elbow_joint" type="revolute">
+    <origin xyz="0.5 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="shoulder"/>
+    <child link="elbow"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-1.57" upper="1.57" effort="8.0" velocity="1.0"/>
+  </joint>
+
+  <joint name="gripper_joint" type="prismatic">
+    <origin xyz="0.5 0.0 0.0" rpy="1.57 0.0 1.57"/>
+    <parent link="elbow"/>
+    <child link="gripper"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="0.0" upper="0.125" effort="2.0" velocity="0.05"/>
+  </joint>
+
+</robot>

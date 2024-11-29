@@ -22,9 +22,10 @@
          ```
       
       ### Output
-      ![alt text](Task1.gif)
+      ![alt text](Task1.png)
       
       - TF
+
       ![alt text](Task1TF.png)
   
 ### Task 2: Add Joints and Visual Elements
@@ -49,9 +50,10 @@
          ```
       
       ### Output
-      ![alt text](Task2a.gif)
+      ![alt text](Task2a.png)
       
       - TF
+      
       ![alt text](Task2aTF.png)
 
 - **Add visualization tags** 
@@ -67,7 +69,7 @@
     
     ### Output
     
-    ![alt text](Task2b.gif)
+    ![alt text](Task2b.png)
       
 
 ### Task 3: Build a Mobile Manipulator

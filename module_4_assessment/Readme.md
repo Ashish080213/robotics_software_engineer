@@ -86,7 +86,7 @@ This assignment is focused on utilizing sensor data to control robots effectivel
     ros2 launch module_4_assignment task3b.launch.py
     ```
 
-4x - Speed
+### WATCH task3b.mp4 Video (4x - Speed)
 
 <video controls src="task3b.mp4" title="Title"></video>
 

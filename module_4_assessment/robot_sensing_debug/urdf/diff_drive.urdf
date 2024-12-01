@@ -187,7 +187,7 @@
   </link>
 
   <joint name="lidar_joint" type="fixed">
-    <origin xyz="-0.285 0 0.075" rpy="0 0.0 1.57"/>
+    <origin xyz="-0.285 0 0.075" rpy="0.0 0.0 0.0"/>
     <parent link="base"/>
     <child link="lidar"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -217,7 +217,7 @@
   <!-- Camera Sensor -->
 
   <gazebo reference="camera">
-    <sensor type="depth" name="front_camera">
+    <sensor type="camera" name="front_camera">
       <update_rate>30.0</update_rate>
       <visualize>true</visualize>
       <camera name="head">
@@ -259,17 +259,17 @@
 
 <!-- Lidar Sensor -->
   <gazebo reference="lidar">
-    <sensor type="gpu_ray" name="diffbot_lidar">
+    <sensor type="ray" name="diffbot_lidar">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
           <horizontal>
             <samples>720</samples>
             <resolution>1</resolution>
-            <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
           </horizontal>
         </scan>
         <range>

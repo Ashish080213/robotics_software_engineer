@@ -30,11 +30,11 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    x_pose = LaunchConfiguration('x_pose', default='-9.09')
-    y_pose = LaunchConfiguration('y_pose', default='2.07')
+    x_pose = LaunchConfiguration('x_pose', default='-5.679414')
+    y_pose = LaunchConfiguration('y_pose', default='2.126649')
 
     world = os.path.join(
-        get_package_share_directory('robot_sensing'),
+        get_package_share_directory('robot_sensing_debug'),
         'worlds',
         'line_following.world'
     )
@@ -61,12 +61,16 @@ def generate_launch_description():
 
     spawn_turtlebot_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'spawn_tb3.launch.py')
-        )
+            os.path.join(launch_file_dir, 'spawn_turtlebot3.launch.py')
+        ),
+        launch_arguments={
+            'x_pose': x_pose,
+            'y_pose': y_pose
+        }.items()
     )
 
     line_following = Node(
-        package = 'robot_sensing',
+        package = 'robot_sensing_debug',
         name = 'line_following',
         executable ='lineFollowing',
 

@@ -106,21 +106,30 @@
 
    - Termial 2
       ```
-      ros2 topic pub --once /arm_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory "{joint_names: ['base_joint', 'shoulder_joint', 'elbow_joint', 'gripper_joint'], points: [{positions: [-1.57, 1.57, 1.57, 0.1], time_from_start: {sec: 5, nanosec: 0}}]}"
+      ros2 topic pub --once /arm_controller/commands std_msgs/msg/Float64MultiArray "layout:
+      dim: []
+      data_offset: 0
+      data: [-1.57, 1.57, 1.57, 0.1]"
       ```
    ### OUTPUT2
   ![alt text](Task3b.png)
 
    - Termial 2
       ```
-      ros2 topic pub --once /arm_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory "{joint_names: ['base_joint', 'shoulder_joint', 'elbow_joint', 'gripper_joint'], points: [{positions: [1.57, 0.0, 1.57, 0.1], time_from_start: {sec: 5, nanosec: 0}}]}"
+      ros2 topic pub --once /arm_controller/commands std_msgs/msg/Float64MultiArray "layout:
+      dim: []
+      data_offset: 0
+      data: [1.57, 0.0, 1.57, 0.1]"
       ```
    ### OUTPUT3
   ![alt text](Task3c.png)
 
    - Termial 2
       ```
-      ros2 topic pub --once /arm_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory "{joint_names: ['base_joint', 'shoulder_joint', 'elbow_joint', 'gripper_joint'], points: [{positions: [0.0, 0.0, 0.0, 0.0], time_from_start: {sec: 5, nanosec: 0}}]}"
+      ros2 topic pub --once /arm_controller/commands std_msgs/msg/Float64MultiArray "layout:
+      dim: []
+      data_offset: 0
+      data: [0.0, 0.0, 0.0, 0.0]"
       ```
    ### OUTPUT4
   ![alt text](Task3d.png)

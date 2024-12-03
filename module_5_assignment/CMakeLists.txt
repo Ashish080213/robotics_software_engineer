@@ -7,20 +7,37 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(angles REQUIRED)
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+add_executable(task1 src/task1.cpp)
+add_executable(task2 src/task2.cpp)
+
+add_library(lqr_lib STATIC src/lqr_lib.cpp)
+target_include_directories(lqr_lib PRIVATE ${EIGEN_INCLUDE_DIR} include)
+target_link_libraries(lqr_lib Eigen3::Eigen)
+
+add_executable(task4 src/task4.cpp)
+target_link_libraries(task4 lqr_lib Eigen3::Eigen)
+ament_target_dependencies(task4 rclcpp nav_msgs geometry_msgs tf2 angles)
+target_include_directories(task4 PRIVATE ${EIGEN_INCLUDE_DIR} include)
+
+ament_target_dependencies(task1 rclcpp geometry_msgs sensor_msgs cv_bridge)
+target_link_libraries(task1 ${OpenCV_LIBS})
+ament_target_dependencies(task2 rclcpp geometry_msgs nav_msgs tf2)
+
+install(TARGETS
+  task1 task2 lqr_lib task4
+  DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch worlds urdf
+  DESTINATION share/${PROJECT_NAME})
 
 ament_package()

@@ -182,7 +182,7 @@
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
       <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
-      <parameters>/home/ashish/robotisim_ws/src/control_systems/config/arm_controller.yaml</parameters>
+      <parameters>/home/ashish/assignment_ws/src/robotics_software_engineer/module_5_assignment/config/arm_controller.yaml</parameters>
     </plugin>
   </gazebo>
 

@@ -103,7 +103,7 @@
 4. **Different Q Values:**
    - Q (process noise covariance)
 
-   - Three different sets of Q and R matrices.
+   - Three different sets of Q matrix.
       - Set-1
          ```
         Q_in << 10, 0, 0, 0, 0,
@@ -116,6 +116,8 @@
          - Orientation of robot oscillating more
 
          ![alt text](task4c.png)
+
+         -  WATCH task4d.mp4 Video (1x Speed)
 
          <video controls src="task4d.mp4" title="4d"></video>
 

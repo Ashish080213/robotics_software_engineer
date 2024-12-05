@@ -153,7 +153,7 @@
          <video controls src="task3c.mp4" title="3c"></video>
 
 5. **Results:**
-   - Greater the Process Noise leads to Lower Accuracy and InStability of the EKF
+   - Greater the Process Noise leads to Lower Accuracy and InStability in the system.
 
    - This set of Q values provided the best balance between accuracy and stability for TurtleBot3’s localization.
 

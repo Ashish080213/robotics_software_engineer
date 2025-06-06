@@ -107,6 +107,10 @@ void RRTStar_Planner::rewire(NodeRRTStar& new_node, std::vector<NodeRRTStar>& ne
     }
 }
 
+void RRTStar_Planner::addNode(const NodeRRTStar& node) {
+    nodes.push_back(node);
+}
+
 std::vector<NodeRRTStar> RRTStar_Planner::planPath(NodeRRTStar const& start, NodeRRTStar const& goal) {
     path.clear();
     nodes.clear();

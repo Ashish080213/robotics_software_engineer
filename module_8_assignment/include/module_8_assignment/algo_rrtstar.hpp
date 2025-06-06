@@ -1,7 +1,7 @@
 #ifndef RRTSTAR_PLANNER_HPP
 #define RRTSTAR_PLANNER_HPP
 
-#include "algo_rrtstar_node.hpp"  // Assuming you rename algo_rrt_node.hpp accordingly
+#include "algo_rrtstar_node.hpp"
 #include <array>
 #include <memory>
 #include <random>
@@ -27,6 +27,8 @@ public:
     void rewire(NodeRRTStar& new_node, std::vector<NodeRRTStar>& near_nodes);
 
     std::vector<NodeRRTStar> planPath(NodeRRTStar const& start, NodeRRTStar const& goal);
+
+    void addNode(const NodeRRTStar& node);
 
 private:
     int const MAX_ITERATIONS = 100000;

@@ -302,11 +302,55 @@
 
          Reference - https://youtu.be/_aqwJBx2NFk?si=Pferx8KRYz0JeDDj
 
-    2. **Develop Unit Tests:**
-       - Write unit tests for the RRT* implementation to validate its functionality.
-       - Ensure the tests cover edge cases such as narrow corridors, dead-ends, and open spaces.
+    2. **Unit Tests:**
 
-    3. **Run and Document Test Results:**
-       - Run the unit tests and document the results, highlighting any issues found and how they were addressed.
-       - Discuss the robustness of the RRT* implementation based on the test outcomes.
+         RRTStar Node Tests:
+         ---
+          - DefaultConstructor
+          - ParameterizedConstructor
+          - SetParent
+          - SetCost
+          - EqualityOperator
+          - Heuristics
+
+         RRTStar Tests:
+         ---
+          - GenerateRandomNode
+          - FindNearestNode
+          - FindNewConfig
+          - IsObstacle
+          - IsGoalFound
+          - FindNearNodes
+          - PlanPathBasic
+          - NoPathDueToObstacles
+          - ValidParentConnections
+          - IndexToCoordinate
+          - Rewire
+
+         ### How To Run?
+
+         - Perform
+            ```
+            cd ~/assignment_ws
+            colcon build --packages-select module_8_assignment
+            source install/setup.bash
+            ```
+         - Run with this command
+         - Termial 1
+            ```
+            colcon test --packages-select module_8_assignment
+            ```
+
+    3. **Test Results:**
+
+         ### OUTPUT
+
+         - Run with this command
+         - Termial 1
+            ```
+            ctest --test-dir ~/assignment_ws/build/module_8_assignment/ --output-on-failure
+            ```
+
+         ![alt text](task3a.png)
+       
 ---

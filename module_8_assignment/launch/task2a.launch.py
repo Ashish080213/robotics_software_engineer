@@ -24,11 +24,11 @@ def generate_launch_description():
         output="screen",
     )
 
-    # path_planning_node = Node(
-    #     package="path_planning",
-    #     executable="path_planning_node",
-    #     output="screen",
-    # )
+    path_planning_node = Node(
+        package="path_planning",
+        executable="path_planning_node",
+        output="screen",
+    )
 
     pp_node = Node(
         package="path_planning",
